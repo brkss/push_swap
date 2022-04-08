@@ -3,19 +3,33 @@
 #include "../includes/push_swap.h"
 
 
-void fill_stack(t_stack *a, int count, char **args){
+static int check_dup(int *arr, int size, int n){
+    int i;
+
+    i = 0;
+    while(i < size){
+      if(arr[i] == n)
+        return (0);
+      i++;
+    }
+    return (1);
+} 
+
+void fill_stack(t_stack *a, int count, char **args)
+{
 
   int i;
-  int j;
+  int n;
 
   if(!a || !args || count == 0)
     return;
   i = 0;
-  j = 1;
   while(i < count - 1){
-    a->stack[i] = ft_atoi(args[j]);
+    n = ft_atoi(args[i + 1]);
+    if(!check_dup(a->stack, i, n))
+      exit_with_error();
+    a->stack[i] = n;
     i++;
-    j++;
   }
   return;
 }
