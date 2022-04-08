@@ -15,6 +15,17 @@ static void fill(int *src, int src_size, int *dest)
   }
 }
 
+void is_sorted(t_stack *a)
+{
+  int i;
+
+  i = 0;
+  while(i < a->stack_size && a->stack[i] == a->metadata.sorted[i])
+    i++;
+  if(i == a->stack_size)
+    exit(0);
+}
+
 int *sort(t_stack *a)
 {
 
