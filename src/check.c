@@ -6,10 +6,7 @@ static int is_alphanum(char c){
 
 
   if((c >= '0' && c <= '9') || c == '-')
-  {
-    printf("hang on this : %c \n", c);
     return (1);
-  }
   return (0);
 
 }
@@ -33,7 +30,6 @@ int check_parameters(int count, char **args){
 
   i = 1;
   while(i < count && args[i]){
-    printf("ARG[%d] : %s \n", i, args[i]);  
     if(!is_arg_alphanum(args[i]))
       return (0);
     i++;

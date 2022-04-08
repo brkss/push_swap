@@ -5,7 +5,7 @@ CC 	= cc
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRCS = push_swap.c src/check.c
+SRCS = push_swap.c src/*.c
 
 $NAME : all
 
