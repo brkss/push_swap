@@ -28,5 +28,6 @@ void print_stack(t_stack *st);
 void exit_with_error();
 int *sort(t_stack *a);
 void is_sorted(t_stack *a);
+void get_case(t_stack *a, t_stack *b);
 
 #endif
