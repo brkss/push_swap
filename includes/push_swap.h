@@ -26,5 +26,6 @@ int ft_atoi(const char *str);
 void fill_stack(t_stack *a, int count, char **args);
 void print_stack(t_stack *st);
 void exit_with_error();
+int *sort(t_stack *a);
 
 #endif

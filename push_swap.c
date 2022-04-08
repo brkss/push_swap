@@ -26,6 +26,13 @@ int main(int argc, char ** argv){
     fill_stack(a, argc, argv);
     print_stack(a);
 
+    a->metadata.sorted = sort(a);
+    int i = 0;
+    while(i < a->stack_size){
+      printf("%d\n", a->metadata.sorted[i]);
+      i++;
+    }
+
     printf("PASSED !");
     return (0);
   }
