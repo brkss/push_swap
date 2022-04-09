@@ -35,5 +35,6 @@ void print_stacks(t_stack *a, t_stack *b);
 // actions 
 void swap(t_stack *stack);
 void push(t_stack *src, t_stack *dest);
+void reverse_rotate(t_stack *dest);
 
 #endif
