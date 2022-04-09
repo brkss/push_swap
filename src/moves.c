@@ -47,6 +47,21 @@ void push(t_stack *src, t_stack *dest)
   src->stack_size--;
 }
 
+void rotate(t_stack *dest)
+{
+  int i;
+  int tmp;
+
+  tmp = dest->stack[0];
+  i = 1;
+  while(i < dest->stack_size)
+  {
+    dest->stack[i - 1] = dest->stack[i];
+    i++;
+  }
+  dest->stack[dest->stack_size - 1] = tmp;
+}
+
 void reverse_rotate(t_stack *dest)
 {
   int i;

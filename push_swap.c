@@ -28,8 +28,8 @@ int main(int argc, char ** argv){
     is_sorted(a); 
 
     print_stacks(a, b);
-    printf("----- REVERSE ROTATE ------ \n");
-    reverse_rotate(a);
+    printf("----- ROTATE ------ \n");
+    rotate(a);
     print_stacks(a, b);
 
     printf("NOT SORTED !");
