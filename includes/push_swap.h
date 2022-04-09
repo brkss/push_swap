@@ -24,10 +24,16 @@ typedef struct s_stack {
 int check_parameters(int count, char **args);
 int ft_atoi(const char *str);
 void fill_stack(t_stack *a, int count, char **args);
-void print_stack(t_stack *st);
 void exit_with_error();
 int *sort(t_stack *a);
 void is_sorted(t_stack *a);
 void get_case(t_stack *a, t_stack *b);
+
+// print
+void print_stacks(t_stack *a, t_stack *b);
+
+// actions 
+void swap(t_stack *stack);
+void push(t_stack *src, t_stack *dest);
 
 #endif

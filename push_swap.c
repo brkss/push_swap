@@ -27,6 +27,12 @@ int main(int argc, char ** argv){
     a->metadata.sorted = sort(a);
     is_sorted(a); 
 
+    print_stacks(a, b);
+    printf("----- PUSH ------ \n");
+    push(a, b);
+    //push(a, b);
+    print_stacks(a, b);
+
     printf("NOT SORTED !");
     return (0);
   }

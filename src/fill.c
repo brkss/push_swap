@@ -33,16 +33,3 @@ void fill_stack(t_stack *a, int count, char **args)
   }
   return;
 }
-
-void print_stack(t_stack *st){
-
-
-  int i;
-
-  i = 0;
-  while(i < st->stack_size){
-    printf("STACK[%d] = %d \n", i, st->stack[i]);
-    i++;
-  }
-
-}
