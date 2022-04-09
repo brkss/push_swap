@@ -38,4 +38,8 @@ void push(t_stack *src, t_stack *dest);
 void reverse_rotate(t_stack *dest);
 void rotate(t_stack *dest);
 
+// sort 
+void handle_three(t_stack *dest);
+void handle_two(t_stack *dest);
+
 #endif

@@ -28,9 +28,9 @@ int main(int argc, char ** argv){
     is_sorted(a); 
 
     print_stacks(a, b);
-    printf("----- ROTATE ------ \n");
-    rotate(a);
+    get_case(a, b);
     print_stacks(a, b);
+    
 
     printf("NOT SORTED !");
     return (0);
