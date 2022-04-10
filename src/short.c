@@ -83,14 +83,11 @@ void handle_short(t_stack *a, t_stack *b)
   while(a->stack_size > 3)
   {
     index = get_min(a);
-    printf("min : %d\n",  index);
-    printf("a size : %d\n",  a->stack_size);
     filter_mins(index, a);
     push(a, b);
   }
   handle_three(a);
   index = 0;
-  print_stacks(a, b);
   while(b->stack_size){
     push(b, a);
     index ++;

@@ -27,20 +27,7 @@ int main(int argc, char ** argv){
     is_sorted(a); 
 
     print_stacks(a, b);
-    printf("PUSH\n");
-    
-    push(a, b);
-    
-    print_stacks(a, b);
-    printf("PUSH\n");
-    
-    push(a, b);
-    
-    print_stacks(a, b);
-    printf("PUSH\n");
-    
-    push(a, b);
-    //get_case(a, b);
+    get_case(a, b);
     print_stacks(a, b);
     
 
