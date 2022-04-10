@@ -30,3 +30,13 @@ void print_stacks(t_stack *a, t_stack *b)
   printf("a  \t b  \n");
   printf("\n --------------------------- \n");
 }
+
+void plot_metadata(t_stack *a)
+{
+  printf("MIDDLE : %d\n", a->metadata.middle);
+  printf("END : %d\n", a->metadata.end);
+  printf("START : %d\n", a->metadata.start);
+  printf("INIT_SIZE : %d\n", a->metadata.init_size);
+  printf("OFFSET : %d\n", a->metadata.offset);
+  printf("DAWN : %d\n", a->metadata.dawn);
+}

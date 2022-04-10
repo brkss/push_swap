@@ -9,9 +9,13 @@
 #include <stdlib.h>
 
 typedef struct s_metadata {
-  int min;
-  int max;
   int *sorted;
+  int offset;
+  int middle;
+  int start;
+  int end;
+  int init_size;
+  int dawn;
 } t_metadata;
 
 typedef struct s_stack {
@@ -31,6 +35,7 @@ void get_case(t_stack *a, t_stack *b);
 
 // print
 void print_stacks(t_stack *a, t_stack *b);
+void plot_metadata(t_stack *a);
 
 // actions 
 void swap(t_stack *stack);
@@ -42,5 +47,8 @@ void rotate(t_stack *dest);
 void handle_three(t_stack *dest);
 void handle_two(t_stack *dest);
 void handle_short(t_stack *a, t_stack *b);
+
+// long sort 
+void init_data(t_stack *a);
 
 #endif
