@@ -31,3 +31,68 @@ void handle_three(t_stack *dest)
       swap(dest);
   }
 }
+
+static int get_min(t_stack *dest)
+{
+
+  int i;
+  int min;
+  int min_index;
+
+  i = 0;
+  min_index = 0;
+  min = dest->stack[0];
+  while(i < dest->stack_size)
+  {
+    if(min > dest->stack[i])
+    {
+      min_index = i;
+      min = dest->stack[i];
+    }
+    i++;
+  }
+  return (min_index);
+}
+
+static void filter_mins(int index, t_stack *a)
+{
+  if(index > a->stack_size / 2)
+  {
+    while(index < a->stack_size){
+      reverse_rotate(a);
+      index++;
+    }
+  }
+  else if(index <= a->stack_size / 2 && index)
+  {
+    while(index > 0)
+    {
+      rotate(a);
+      index--;
+    }
+  }
+}
+
+void handle_short(t_stack *a, t_stack *b)
+{
+  
+  int index;
+  int n;
+
+  n = 0;
+  while(a->stack_size > 3)
+  {
+    index = get_min(a);
+    printf("min : %d\n",  index);
+    printf("a size : %d\n",  a->stack_size);
+    filter_mins(index, a);
+    push(a, b);
+  }
+  handle_three(a);
+  index = 0;
+  print_stacks(a, b);
+  while(b->stack_size){
+    push(b, a);
+    index ++;
+  }
+}

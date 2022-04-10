@@ -11,11 +11,13 @@ void print_stacks(t_stack *a, t_stack *b)
   
   i = 0;
   j = 0;
+  printf("\n --------------------------- \n");
   while(i < a->stack_size || j < b->stack_size)
   {
     if(i < a->stack_size){
-      printf("%d  \t", a->stack[i]);
+      printf("%d ", a->stack[i]);
     }
+    printf("\t");
     if(j < b->stack_size){
       printf(" %d", b->stack[j]);
     }
@@ -26,5 +28,5 @@ void print_stacks(t_stack *a, t_stack *b)
 
   printf("-- \t -- \n");
   printf("a  \t b  \n");
-
+  printf("\n --------------------------- \n");
 }

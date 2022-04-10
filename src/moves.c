@@ -40,8 +40,8 @@ static void shift_up(t_stack *stack)
 // push from stack src to stack dest ;;;
 void push(t_stack *src, t_stack *dest)
 {
-  shift_down(dest);
   dest->stack_size++;
+  shift_down(dest);
   dest->stack[0] = src->stack[0];
   shift_up(src);
   src->stack_size--;

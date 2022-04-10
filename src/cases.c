@@ -10,9 +10,9 @@ void get_case(t_stack *a, t_stack *b){
     handle_two(a);
   else if(a->stack_size == 3)
     handle_three(a);
-  /*
   else if(a->stack_size == 4 || a->stack_size == 5)
-    // handle short 
+    handle_short(a, b);
+  /*
   else if(a->stack_size > 5)
     // handle long !
   */

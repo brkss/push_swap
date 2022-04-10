@@ -41,5 +41,6 @@ void rotate(t_stack *dest);
 // sort 
 void handle_three(t_stack *dest);
 void handle_two(t_stack *dest);
+void handle_short(t_stack *a, t_stack *b);
 
 #endif
