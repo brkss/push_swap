@@ -47,6 +47,7 @@ void rotate(t_stack *dest);
 void handle_three(t_stack *dest);
 void handle_two(t_stack *dest);
 void handle_short(t_stack *a, t_stack *b);
+void sort_long(t_stack *a, t_stack *b);
 
 // long sort 
 void init_data(t_stack *a);

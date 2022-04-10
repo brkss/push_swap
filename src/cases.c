@@ -13,7 +13,10 @@ void get_case(t_stack *a, t_stack *b){
   else if(a->stack_size == 4 || a->stack_size == 5)
     handle_short(a, b);
   else
+  {
     init_data(a);
+    sort_long(a, b); 
+  }
   /*
   else if(a->stack_size > 5)
     // handle long !

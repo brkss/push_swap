@@ -18,5 +18,4 @@ void init_data(t_stack *a)
   a->metadata.middle = a->stack_size / 2;
   a->metadata.start = a->metadata.middle  - a->metadata.offset;
   a->metadata.end = a->metadata.middle  + a->metadata.offset;
-  plot_metadata(a);
 }
