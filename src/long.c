@@ -1,6 +1,67 @@
 
 #include "../includes/push_swap.h"
 
+static int get_index(t_stack *dest, int n)
+{  
+  int i;
+  
+  i = dest->stack_size - 1;
+  while(i >= 0)
+  {
+    if(dest->stack[i] == n)
+      return(i);
+    i--;
+  }
+  return (-1);
+}
+
+static void btoa(t_stack *a, t_stack *b, int *i, int j)
+{
+  
+  if(b->stack[0] == a->metadata.sorted[*i])
+  {
+    push(b, a);
+    (*i)--;
+  }
+  else if(b->stack[0] > a->stack[a->stack_size - 1] && a->metadata.dawn == 0)
+  {
+    push(b, a);
+    rotate(a);
+    a->metadata.dawn++;
+  }
+  else
+  {
+    if(j <= b->stack_size / 2)
+      rotate(b);
+    else
+      reverse_rotate(b);
+  }
+
+  printf("\n--------------- B TO A--------------\n");
+  print_stacks(a, b);
+
+}
+
+static void check(t_stack *a, t_stack *b)
+{
+  int index;
+  int i;
+
+  i = a->metadata.init_size - 1;
+  while(b->stack_size)
+  {
+    index = get_index(b, a->metadata.sorted[i]);
+    if(index >= 0)
+      btoa(a, b, &i, index);
+    else if(a->metadata.dawn && a->stack_size > 1)
+    {
+      reverse_rotate(a);
+      a->metadata.dawn--;
+      i--;
+    }
+  }
+}
+
 static void compare(t_stack *a, t_stack *b)
 {
   if(a->stack[0] >= a->metadata.sorted[a->metadata.start] 
@@ -34,5 +95,7 @@ void sort_long(t_stack *a, t_stack *b)
     else
       a->metadata.end = a->metadata.end + a->metadata.offset;
   }
-
+  print_stacks(a, b);
+  check(a, b);
+  reverse_rotate(a);
 }
