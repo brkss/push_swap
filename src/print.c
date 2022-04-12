@@ -11,7 +11,7 @@ void print_stacks(t_stack *a, t_stack *b)
   
   i = 0;
   j = 0;
-  if(0)
+  if(1)
   {
 
   printf("\n --------------------------- \n");

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   long.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/12 17:50:33 by bberkass          #+#    #+#             */
+/*   Updated: 2022/04/12 18:56:46 by bberkass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
@@ -42,22 +53,23 @@ static void btoa(t_stack *a, t_stack *b, int *i, int j)
 
 }
 
-static void check(t_stack *a, t_stack *b)
+void check(t_stack *a, t_stack *b)
 {
   int index;
   int i;
 
   i = a->metadata.init_size - 1;
-  while(b->stack_size)
+  while(b->stack_size || a->metadata.dawn)
   {
     index = get_index(b, a->metadata.sorted[i]);
-    if(index >= 0)
+    printf("index : %d \n", index);
+	if(index >= 0)
       btoa(a, b, &i, index);
-    else if(a->metadata.dawn && a->stack_size > 1)
+    else if(a->metadata.dawn > 0 && a->stack_size > 1)
     {
       reverse_rotate(a, "rra\n");
       a->metadata.dawn--;
-      i--;
+      //i--;
     }
   }
 }
@@ -75,13 +87,11 @@ static void compare(t_stack *a, t_stack *b)
     rotate(a, "ra\n");
 }
 
-
 void sort_long(t_stack *a, t_stack *b)
 {
-
   int i;
 
-  while(a->stack_size > 0)
+  while(a->stack_size)
   {
     i = a->metadata.end - a->metadata.start;
     while(b->stack_size < i && a->stack_size > 0)
@@ -96,6 +106,18 @@ void sort_long(t_stack *a, t_stack *b)
       a->metadata.end = a->metadata.end + a->metadata.offset;
   }
   print_stacks(a, b);
+  printf("B size : %d \n", b->stack_size);
+  /*
+  i = 0;
+  while(i < a->metadata.init_size)
+	{
+		printf("%d \n", a->metadata.sorted[i]);
+		i++;
+	}
+  printf("init size : %d \n", a->metadata.init_size);
+  printf("biggest value in refrence : %d \n", a->metadata.sorted[a->metadata.init_size - 1]);
+  printf("biggest value index in stack b : %d \n", get_index(b, a->metadata.sorted[a->metadata.init_size - 1]));
+  */
   check(a, b);
-  reverse_rotate(a, "rra\n");
+  //reverse_rotate(a, "rra\n");
 }

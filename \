@@ -22,7 +22,7 @@ void init_data(t_stack *a)
 
 void put_str(char *str)
 {
-  if(!str && 0)
+  if(!str && false)
     return;
   while(*str)
   {
