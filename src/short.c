@@ -7,7 +7,7 @@ void handle_two(t_stack *dest){
   if(dest->stack_size == 1)
     exit(0);
   if(dest->stack[0] > dest->stack[1]){
-    rotate(dest);
+    rotate(dest, "ra\n");
     exit(0);
   }
   else
@@ -24,11 +24,11 @@ void handle_three(t_stack *dest)
   while(!is_tree_sorted(dest))
   {
     if(dest->stack[0] > dest->stack[1] && dest->stack[1] < dest->stack[2] && dest->stack[0] > dest->stack[2])
-      rotate(dest);
+      rotate(dest, "ra\n");
     if(dest->stack[0] < dest->stack[1] && dest->stack[1] > dest->stack[2] && dest->stack[0] > dest->stack[2])
-      reverse_rotate(dest);
+      reverse_rotate(dest, "rra\n");
     if(dest->stack[0] > dest->stack[1] || (dest->stack[0] < dest->stack[1] && dest->stack[2] < dest->stack[1]))
-      swap(dest);
+      swap(dest, "sa\n");
   }
 }
 
@@ -59,7 +59,7 @@ static void filter_mins(int index, t_stack *a)
   if(index > a->stack_size / 2)
   {
     while(index < a->stack_size){
-      reverse_rotate(a);
+      reverse_rotate(a, "rra\n");
       index++;
     }
   }
@@ -67,7 +67,7 @@ static void filter_mins(int index, t_stack *a)
   {
     while(index > 0)
     {
-      rotate(a);
+      rotate(a, "ra\n");
       index--;
     }
   }
@@ -84,12 +84,12 @@ void handle_short(t_stack *a, t_stack *b)
   {
     index = get_min(a);
     filter_mins(index, a);
-    push(a, b);
+    push(a, b, "pb\n");
   }
   handle_three(a);
   index = 0;
   while(b->stack_size){
-    push(b, a);
+    push(b, a, "pa\n");
     index ++;
   }
 }

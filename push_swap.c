@@ -31,7 +31,7 @@ int main(int argc, char ** argv){
     print_stacks(a, b);
     
 
-    printf("NOT SORTED !");
+    //printf("NOT SORTED !");
     return (0);
   }
 

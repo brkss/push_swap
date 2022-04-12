@@ -20,24 +20,24 @@ static void btoa(t_stack *a, t_stack *b, int *i, int j)
   
   if(b->stack[0] == a->metadata.sorted[*i])
   {
-    push(b, a);
+    push(b, a, "pa\n");
     (*i)--;
   }
   else if(b->stack[0] > a->stack[a->stack_size - 1] && a->metadata.dawn == 0)
   {
-    push(b, a);
-    rotate(a);
+    push(b, a, "pa\n");
+    rotate(a, "ra\n");
     a->metadata.dawn++;
   }
   else
   {
     if(j <= b->stack_size / 2)
-      rotate(b);
+      rotate(b, "rb\n");
     else
-      reverse_rotate(b);
+      reverse_rotate(b, "rrb\n");
   }
 
-  printf("\n--------------- B TO A--------------\n");
+  //printf("\n--------------- B TO A--------------\n");
   print_stacks(a, b);
 
 }
@@ -55,7 +55,7 @@ static void check(t_stack *a, t_stack *b)
       btoa(a, b, &i, index);
     else if(a->metadata.dawn && a->stack_size > 1)
     {
-      reverse_rotate(a);
+      reverse_rotate(a, "rra\n");
       a->metadata.dawn--;
       i--;
     }
@@ -67,12 +67,12 @@ static void compare(t_stack *a, t_stack *b)
   if(a->stack[0] >= a->metadata.sorted[a->metadata.start] 
       && a->stack[0] <= a->metadata.sorted[a->metadata.end - 1])
   {
-    push(a, b);
+    push(a, b, "pb\n");
     if(b->stack[0] > a->metadata.sorted[a->metadata.middle] && b->stack_size > 1)
-      rotate(b);
+      rotate(b, "rb\n");
   }
   else 
-    rotate(a);
+    rotate(a, "ra\n");
 }
 
 
@@ -97,5 +97,5 @@ void sort_long(t_stack *a, t_stack *b)
   }
   print_stacks(a, b);
   check(a, b);
-  reverse_rotate(a);
+  reverse_rotate(a, "rra\n");
 }

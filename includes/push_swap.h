@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 typedef struct s_metadata {
   int *sorted;
@@ -38,10 +39,10 @@ void print_stacks(t_stack *a, t_stack *b);
 void plot_metadata(t_stack *a);
 
 // actions 
-void swap(t_stack *stack);
-void push(t_stack *src, t_stack *dest);
-void reverse_rotate(t_stack *dest);
-void rotate(t_stack *dest);
+void swap(t_stack *stack, char *ind);
+void push(t_stack *src, t_stack *dest, char *ind);
+void reverse_rotate(t_stack *dest, char *ind);
+void rotate(t_stack *dest, char *ind);
 
 // sort 
 void handle_three(t_stack *dest);
@@ -52,4 +53,6 @@ void sort_long(t_stack *a, t_stack *b);
 // long sort 
 void init_data(t_stack *a);
 
+// utils
+void put_str(char *str);
 #endif

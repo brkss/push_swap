@@ -11,6 +11,9 @@ void print_stacks(t_stack *a, t_stack *b)
   
   i = 0;
   j = 0;
+  if(0)
+  {
+
   printf("\n --------------------------- \n");
   while(i < a->stack_size || j < b->stack_size)
   {
@@ -29,6 +32,7 @@ void print_stacks(t_stack *a, t_stack *b)
   printf("-- \t -- \n");
   printf("a  \t b  \n");
   printf("\n --------------------------- \n");
+  }
 }
 
 void plot_metadata(t_stack *a)

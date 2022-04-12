@@ -19,3 +19,14 @@ void init_data(t_stack *a)
   a->metadata.start = a->metadata.middle  - a->metadata.offset;
   a->metadata.end = a->metadata.middle  + a->metadata.offset;
 }
+
+void put_str(char *str)
+{
+  if(!str)
+    return;
+  while(*str)
+  {
+    write(1, str, 1);
+    str++;
+  }
+}

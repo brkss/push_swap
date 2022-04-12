@@ -2,13 +2,14 @@
 
 #include "../includes/push_swap.h"
 
-void swap(t_stack *stack)
+void swap(t_stack *stack, char *ind)
 {
   int tmp;
 
   tmp = stack->stack[0];
   stack->stack[0] = stack->stack[1];
   stack->stack[1] = tmp;
+  put_str(ind);
 }
 
 static void shift_down(t_stack *stack)
@@ -38,16 +39,17 @@ static void shift_up(t_stack *stack)
 }
 
 // push from stack src to stack dest ;;;
-void push(t_stack *src, t_stack *dest)
+void push(t_stack *src, t_stack *dest, char *ind)
 {
   dest->stack_size++;
   shift_down(dest);
   dest->stack[0] = src->stack[0];
   shift_up(src);
   src->stack_size--;
+  put_str(ind);
 }
 
-void rotate(t_stack *dest)
+void rotate(t_stack *dest, char *ind)
 {
   int i;
   int tmp;
@@ -60,9 +62,10 @@ void rotate(t_stack *dest)
     i++;
   }
   dest->stack[dest->stack_size - 1] = tmp;
+  put_str(ind);
 }
 
-void reverse_rotate(t_stack *dest)
+void reverse_rotate(t_stack *dest, char *ind)
 {
   int i;
   int tmp;
@@ -77,5 +80,6 @@ void reverse_rotate(t_stack *dest)
     i--;
   }
   dest->stack[0] = tmp;
+  put_str(ind);
 } 
 
