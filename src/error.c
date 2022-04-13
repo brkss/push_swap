@@ -6,15 +6,14 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:42:39 by bberkass          #+#    #+#             */
-/*   Updated: 2022/04/13 17:42:42 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/04/13 17:52:38 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void exit_with_error(){
-
-  printf("\nError");
+void	exit_with_error(void)
+{
+  put_str("\nError");
   exit(1);
-
 }
