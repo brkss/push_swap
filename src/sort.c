@@ -6,61 +6,62 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:43:39 by bberkass          #+#    #+#             */
-/*   Updated: 2022/04/13 17:43:42 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/04/13 19:59:57 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void fill(int *src, int src_size, int *dest)
+static void	fill(int *src, int src_size, int *dest)
 {
-  int i;
+	int	i;
 
-  if(!src || src_size == 0)
-    return;
-  i = 0;
-  while(i < src_size)
-  {
-    dest[i] = src[i];
-    i++;
-  }
+	if (!src || src_size == 0)
+		return ;
+	i = 0;
+	while (i < src_size)
+	{
+		dest[i] = src[i];
+		i++;
+	}
 }
 
-void is_sorted(t_stack *a)
+void	is_sorted(t_stack *a)
 {
-  int i;
+	int	i;
 
-  i = 0;
-  while(i < a->stack_size && a->stack[i] == a->metadata.sorted[i])
-    i++;
-  if(i == a->stack_size)
-    exit(0);
+	i = 0;
+	while (i < a->stack_size && a->stack[i] == a->metadata.sorted[i])
+		i++;
+	if (i == a->stack_size)
+		exit(0);
 }
 
-int *sort(t_stack *a)
+int	*sort(t_stack *a)
 {
+	int	tmp;
+	int	min;
+	int	i;
+	int	*arr;
 
-  int tmp;
-  int min;
-  int i;
-  int *arr;
-
-  i = 0;
-  min = 0;
-  arr = (int *)malloc(sizeof(int) * a->stack_size);
-  fill(a->stack, a->stack_size, arr);
-  while(min < a->stack_size)
-  {
-    i = min;
-    while(i < a->stack_size){
-      if(arr[min] > arr[i]){
-        tmp = arr[min];
-        arr[min] = arr[i];
-        arr[i] = tmp;
-      }
-      i++;
-    }
-    min++;
-  }
-  return (arr);
+	i = 0;
+	min = 0;
+	arr = (int *)malloc(sizeof(int) * a->stack_size);
+	fill(a->stack, a->stack_size, arr);
+	while (min < a->stack_size)
+	{
+		i = min;
+		while (i < a->stack_size)
+		{
+			if (arr[min] > arr[i])
+			{
+				tmp = arr[min];
+				arr[min] = arr[i];
+				arr[i] = tmp;
+			}
+			i++;
+		}
+		min++;
+	}
+	return (arr);
 }
