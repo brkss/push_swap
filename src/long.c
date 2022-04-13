@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:50:33 by bberkass          #+#    #+#             */
-/*   Updated: 2022/04/12 18:56:46 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/04/12 19:31:46 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,17 @@ void check(t_stack *a, t_stack *b)
   int i;
 
   i = a->metadata.init_size - 1;
+  a->metadata.dawn = 0;
   while(b->stack_size || a->metadata.dawn)
   {
     index = get_index(b, a->metadata.sorted[i]);
-    printf("index : %d \n", index);
 	if(index >= 0)
       btoa(a, b, &i, index);
     else if(a->metadata.dawn > 0 && a->stack_size > 1)
     {
       reverse_rotate(a, "rra\n");
       a->metadata.dawn--;
-      //i--;
+      i--;
     }
   }
 }
@@ -106,7 +106,6 @@ void sort_long(t_stack *a, t_stack *b)
       a->metadata.end = a->metadata.end + a->metadata.offset;
   }
   print_stacks(a, b);
-  printf("B size : %d \n", b->stack_size);
   /*
   i = 0;
   while(i < a->metadata.init_size)
