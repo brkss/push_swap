@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:28:08 by bberkass          #+#    #+#             */
-/*   Updated: 2022/04/13 20:05:37 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/04/14 19:38:13 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	{
 		if (!check_parameters(argc, argv))
 		{
-			put_str("\nError");
+			put_str("Error\n");
 			exit(0);
 		}
 		a = (t_stack *)malloc(sizeof(t_stack));
