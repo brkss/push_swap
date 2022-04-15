@@ -34,6 +34,6 @@ int	main(int argc, char **argv)
 		a->metadata.sorted = sort(a);
 		is_sorted(a);
 		get_case(a, b);
-		return (0);
+    return (0);
 	}
 }

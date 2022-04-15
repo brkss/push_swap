@@ -33,7 +33,7 @@ static void	btoa(t_stack *a, t_stack *b, int *i, int j)
 		push(b, a, "pa\n");
 		(*i)--;
 	}
-	else if (b->stack[0] > a->stack[a->stack_size - 1] && a->metadata.dawn == 0)
+	else if (b->stack[0] > a->stack[a->stack_size - 1] || a->metadata.dawn == 0)
 	{
 		push(b, a, "pa\n");
 		rotate(a, "ra\n");
@@ -41,7 +41,7 @@ static void	btoa(t_stack *a, t_stack *b, int *i, int j)
 	}
 	else
 	{
-		if (j <= b->stack_size / 2)
+		if (j < b->stack_size / 2)
 			rotate(b, "rb\n");
 		else
 			reverse_rotate(b, "rrb\n");
