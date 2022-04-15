@@ -5,17 +5,20 @@ CC 	= cc
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRCS = push_swap.c src/*.c
+FILES = src/atoi.c src/cases.c src/check.c src/error.c src/fill.c src/long.c src/moves.c src/print.c src/short.c src/sort.c src/utils.c
 
-BSRCS = src/checker/*.c src/*.c
 
-$NAME : all
+SRCS = push_swap.c 
 
-all : 
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+BSRCS = src/checker/checker.c src/checker/get_next_line.c src/checker/get_next_line_utils.c src/checker/utils.c
+
+all : $(NAME)
+
+$(NAME): 
+	$(CC) $(CFLAGS) $(SRCS) $(FILES) -o $(NAME)
 
 bonus:
-	$(CC) $(CFLAGS) $(BSRCS) -o checker
+	$(CC) $(CFLAGS) $(BSRCS) $(FILES) -o checker
 
 re: fclean all
 
