@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:42:39 by bberkass          #+#    #+#             */
-/*   Updated: 2022/04/14 18:53:40 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/04/15 20:00:42 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	exit_with_error(void)
 {
-	put_str("\nError");
+	put_str("Error\n");
 	exit(1);
 }
