@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 18:25:37 by bberkass          #+#    #+#             */
-/*   Updated: 2022/04/14 19:40:14 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/04/16 01:10:56 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,21 @@ int	sorted(t_stack *a)
 	return (0);
 }
 
-int	main(int argc, char **argv)
+void	follow_instructions(t_stack *a, t_stack *b)
 {
 	char	*instruction;
+
+	instruction = get_next_line(0);
+	while (instruction)
+	{
+		handle_instruction(instruction, a, b);
+		free(instruction);
+		instruction = get_next_line(0);
+	}
+}
+
+int	main(int argc, char **argv)
+{
 	t_stack	*a;
 	t_stack	*b;
 
@@ -54,13 +66,7 @@ int	main(int argc, char **argv)
 		b->stack_size = 0;
 		fill_stack(a, argc, argv);
 		a->metadata.sorted = sort(a);
-		instruction = get_next_line(0);
-		while (instruction)
-		{
-			handle_instruction(instruction, a, b);
-			free(instruction);
-			instruction = get_next_line(0);
-		}
+		follow_instructions(a, b);
 		if (sorted(a))
 			put_str("OK\n");
 		else

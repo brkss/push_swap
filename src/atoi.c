@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:41:58 by bberkass          #+#    #+#             */
-/*   Updated: 2022/04/15 20:02:25 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/04/16 01:00:08 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ int	ft_atoi(const char *str)
 		is_max = check_long(total, str[i], negative);
 		if (is_max != 1)
 			return (is_max);
-		if(total > (2147483647 / 10) - (str[i] - 48))
-			exit_with_error();
 		total = total * 10 + (str[i] - 48);
 		i++;
 	}

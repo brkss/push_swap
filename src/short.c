@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:43:31 by bberkass          #+#    #+#             */
-/*   Updated: 2022/04/13 19:57:51 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/04/16 01:04:02 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,9 @@ void	handle_two(t_stack *dest)
 		exit(0);
 }
 
-static int	is_tree_sorted(t_stack *dest)
-{
-	return (dest->stack[0] < dest->stack[1] && dest->stack[1] < dest->stack[2]);
-}
-
 void	handle_three(t_stack *dest)
 {
-	while (!is_tree_sorted(dest))
+	while (dest->stack[0] < dest->stack[1] && dest->stack[1] < dest->stack[2])
 	{
 		if (dest->stack[0] > dest->stack[1] && dest->stack[1] < dest->stack[2]
 			&& dest->stack[0] > dest->stack[2])

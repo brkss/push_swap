@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:43:06 by bberkass          #+#    #+#             */
-/*   Updated: 2022/04/13 19:02:00 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/04/16 01:02:25 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,32 +20,6 @@ void	swap(t_stack *stack, char *ind)
 	stack->stack[0] = stack->stack[1];
 	stack->stack[1] = tmp;
 	put_str(ind);
-}
-
-static void	shift_down(t_stack *stack)
-{
-	int	i;
-
-	i = stack->stack_size - 1;
-	while (i > 0)
-	{
-		stack->stack[i] = stack->stack[i - 1];
-		i--;
-	}
-	stack->stack[0] = 0;
-}
-
-static void	shift_up(t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->stack_size -1)
-	{
-		stack->stack[i] = stack->stack[i + 1];
-		i++;
-	}
-	stack->stack[i] = 0;
 }
 
 void	push(t_stack *src, t_stack *dest, char *ind)

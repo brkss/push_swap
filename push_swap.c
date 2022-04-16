@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:28:08 by bberkass          #+#    #+#             */
-/*   Updated: 2022/04/15 19:59:29 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/04/16 00:59:37 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int	main(int argc, char **argv)
 		a->metadata.sorted = sort(a);
 		is_sorted(a);
 		get_case(a, b);
-    return (0);
+		return (0);
 	}
 }
